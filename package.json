@@ -2,10 +2,17 @@
   "name": "cloudnine",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Kenneth Österholm",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "http": "0.0.0",
+    "mongoose": "^4.13.9",
+    "nodemon": "^1.14.11",
+    "path": "^0.12.7"
+  }
 }
