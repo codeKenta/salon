@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "cd client && ng build --aot prod"
+    "postinstall": "cd client && ng build"
   },
   "author": "Kenneth Österholm",
   "license": "ISC",
@@ -16,5 +16,9 @@
     "mongoose": "^4.13.9",
     "path": "^0.12.7"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "engines": {
+    "node": "6.11.3",
+    "npm": "3.10.9"
+  }
 }
