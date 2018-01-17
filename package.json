@@ -5,7 +5,8 @@
   "main": "server/server.js",
   "scripts": {
     "start": "node server/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cd client && ng build --aot prod"
   },
   "author": "Kenneth Österholm",
   "license": "ISC",
@@ -13,7 +14,7 @@
     "express": "^4.16.2",
     "http": "0.0.0",
     "mongoose": "^4.13.9",
-    "nodemon": "^1.14.11",
-    "path": "^0.12.7"
-  }
+    "path": "^0.12.7",
+  },
+  "devDependencies": {}
 }

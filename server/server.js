@@ -20,15 +20,14 @@ db.on('error', console.error.bind(console, 'connection error!'));
 
 
 // Angular DIST output folder
-// app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // Routes
 app.use('/api', apiRoutes);
 
 // Send all other requests to the Angular app
 app.get('*', (req, res) => {
-  res.send("working");
-    // res.sendFile(path.join(__dirname, '/dist/index.html'));
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
 
