@@ -3,9 +3,16 @@ const express     = require('express'),
       mongoose    = require('mongoose'),
       Salon       = require('../models/salon');
 
-// Route for getting all salons
+// Route for getting all salons within a specific price range
 router.get('/', (req, res, next) => {
-  Salon.find({}, (err, salons) => {
+
+  let min = JSON.parse(req.query.min);
+  let max = JSON.parse(req.query.max);
+
+  Salon.find({"price": {
+        "$gte": min,
+        "$lte": max
+      }}, (err, salons) => {
     if (err) throw err;
     res.json(salons);
   });

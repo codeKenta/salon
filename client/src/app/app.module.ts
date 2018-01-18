@@ -1,14 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { DataService } from './services/data.service';
 import { AppRoutingModule } from './routes/app-routing.module';
+import { HttpModule } from '@angular/http';
+
 import { AppComponent } from './components/app/app.component';
 import { SalonsListComponent } from './components/salons-list/salons-list.component';
 import { SalonSingleComponent } from './components/salon-single/salon-single.component';
 import { FilterComponent } from './components/icons/filter/filter.component';
 import { AngleLeftComponent } from './components/icons/angle-left/angle-left.component';
 import { AngleDownSmComponent } from './components/icons/angle-down-sm/angle-down-sm.component';
+import { StarComponent } from './components/icons/star/star.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +20,17 @@ import { AngleDownSmComponent } from './components/icons/angle-down-sm/angle-dow
     SalonSingleComponent,
     FilterComponent,
     AngleLeftComponent,
-    AngleDownSmComponent
+    AngleDownSmComponent,
+    StarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFontAwesomeModule
+    HttpModule
   ],
-  providers: [],
+  providers: [
+    DataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

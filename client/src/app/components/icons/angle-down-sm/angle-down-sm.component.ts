@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'angle-down-sm',
+  selector: 'angle-down-sm-icon',
   templateUrl: './angle-down-sm.component.html',
   styleUrls: []
 })

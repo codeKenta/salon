@@ -1,5 +1,5 @@
 @import './variables';
-
+@import './mixins';
 @font-face {
     font-family: MillerBannerLight;
     src: url("fonts/FontBureau-MillerBannerLight.otf") format("opentype");
@@ -20,6 +20,12 @@ body {
   }
 }
 
+.pink {
+  background: pink;
+}
+.yellow {
+  background: yellow;
+}
 
 /*
 Top-navigation for navigating in app
@@ -27,9 +33,11 @@ and selecting price interval in the list-view
 */
 .top-nav {
   position: fixed;
+  background: white;
   top: 0;
   width: 100%;
   box-sizing: border-box;
+  z-index: 3;
 
   // row for the top items of the nav-element
   .row.navigate {
@@ -57,11 +65,11 @@ and selecting price interval in the list-view
 // Setting color to icons
 .icon-container.gold { svg { g { stroke: $gold} } }
 
-
 /* Style for the list */
 .list-container {
   padding: 15px;
   padding-top: 120px;
+  background: white;
 }
 
 .list-item {
@@ -71,6 +79,11 @@ and selecting price interval in the list-view
   align-items: baseline;
   border-bottom: 1px solid $lightGrey;
 
+  // Setting all spans to block so they are displayed on new lines
+  span {
+    display: block;
+  }
+
   .salon-name, .price {
     margin-bottom: 15px;
   }
@@ -78,10 +91,44 @@ and selecting price interval in the list-view
   .time, .price {
     font-weight: normal;
   }
-
+  .time {
+    margin-right: 15px;
+  }
   .salon-name {
     font-family: $serif1;
     font-size: 20px;
+  }
+
+  // Justifies the second group which contains
+  // Name, ratings and address
+  .group.second {
+    position: relative;
+    bottom: 4px;
+  }
+
+  .group.rates {
+    font-size: 10px;
+    margin-bottom: 15px;
+    span {
+      display: inline-block;
+    }
+    .raters {
+      position: relative;
+      bottom: 1px;
+      margin-left: 5px;
+      font-size: 10px;
+      color: $mediumGrey;
+      font-weight: 200;
+    }
+
+    // Filling the star which is empty as default
+    .icon-container.fill {
+      svg {
+        g {
+          fill: $gold;
+        }
+      }
+    }
   }
 
   .address {
@@ -95,12 +142,16 @@ and selecting price interval in the list-view
     font-size: 13px;
   }
 
-  .icon-container {
+  .icon-container.angle {
     align-self: center;
-  }
-
-  span {
-    display: block;
+    margin-left: 30px;
+    @include mediaMaxWidth(322px){
+      margin-left: 17px;
+    }
+    // Reusing the angle-down-icon and rotating it to right
+    svg {
+      transform: rotate(-90deg);
+    }
   }
 
 }

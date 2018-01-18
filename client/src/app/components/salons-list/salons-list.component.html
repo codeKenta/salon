@@ -10,12 +10,12 @@
       <filter-icon></filter-icon>
     </div>
   </div>
-
+<!-- [ngClass]="{'me-msg': message.sender == currentUser.id, 'friendmsg': message.sender == friend._id}" -->
   <!-- Select price interval -->
   <div class="row price-interval flex just-space-between">
     <span class="selected-interval">Pris: 250-500 kr</span>
     <div class="icon-container gold">
-      <angle-down-sm></angle-down-sm>
+      <angle-down-sm-icon></angle-down-sm-icon>
     </div>
   </div>
 </nav>
@@ -24,25 +24,38 @@
 <div class="list-container">
 
   <!-- Item  -->
-  <div class="list-item">
-    <span class="time">12.00</span>
+  <div class="list-item" *ngFor="let salon of salons">
+    <div class="flex just-space-between">
+      <span class="time">12.00</span>
 
-    <div class="group">
-      <span class="salon-name">Sax & Fön</span>
-      <div class="group rates">
+      <div class="group second">
+        <span class="salon-name">{{salon.name}}</span>
 
+        <div class="group rates">
+          <span class="icon-container gold" [ngClass]="{'fill': salon.avarage >= 1}"><star-icon></star-icon></span>
+          <span class="icon-container gold" [ngClass]="{'fill': salon.avarage >= 2}"><star-icon></star-icon></span>
+          <span class="icon-container gold" [ngClass]="{'fill': salon.avarage >= 3}"><star-icon></star-icon></span>
+          <span class="icon-container gold" [ngClass]="{'fill': salon.avarage >= 4}"><star-icon></star-icon></span>
+          <span class="icon-container gold" [ngClass]="{'fill': salon.avarage >= 5}"><star-icon></star-icon></span>
+          <span class="raters">({{salon.rates.length}})</span>
+        </div>
+
+        <span class="address">{{salon.address}}</span>
       </div>
-      <span class="address">Rådmansgatan 46</span>
     </div>
 
-    <div class="group price">
-      <span class="price">320 kr</span>
-      <span class="length">30 min</span>
+
+    <div class="flex just-space-between">
+      <div class="group price">
+        <span class="price">{{salon.price}} kr</span>
+        <span class="length">30 min</span>
+      </div>
+
+      <div class="icon-container angle gold" routerLink="/salons/{{salon.identityname}}">
+        <angle-down-sm-icon></angle-down-sm-icon>
+      </div>
     </div>
 
-    <div class="icon-container gold">
-      <angle-down-sm></angle-down-sm>
-    </div>
 
   </div>
 
