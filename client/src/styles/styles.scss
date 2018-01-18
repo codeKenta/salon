@@ -1,0 +1,106 @@
+@import './variables';
+
+@font-face {
+    font-family: MillerBannerLight;
+    src: url("fonts/FontBureau-MillerBannerLight.otf") format("opentype");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $sansSerif1;
+  color: $black;
+  font-size: 15px;
+}
+
+.flex {
+  display: flex;
+  &.just-space-between {
+    justify-content: space-between;
+  }
+}
+
+
+/*
+Top-navigation for navigating in app
+and selecting price interval in the list-view
+*/
+.top-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+
+  // row for the top items of the nav-element
+  .row.navigate {
+    .brand {
+      font-family: $serif1;
+      font-size: 22px;
+    }
+    .icon-container {
+      display: flex;
+      padding: 15px;
+      padding-bottom: 7px;
+      align-items: center;
+    }
+  }
+
+  // Row for selecting price interval in the list view
+  .row.price-interval {
+    border-top: 1px solid $gold;
+    border-bottom: 1px solid $gold;
+    font-weight: 200;
+    padding: 15px;
+  }
+}
+
+// Setting color to icons
+.icon-container.gold { svg { g { stroke: $gold} } }
+
+
+/* Style for the list */
+.list-container {
+  padding: 15px;
+  padding-top: 120px;
+}
+
+.list-item {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid $lightGrey;
+
+  .salon-name, .price {
+    margin-bottom: 15px;
+  }
+
+  .time, .price {
+    font-weight: normal;
+  }
+
+  .salon-name {
+    font-family: $serif1;
+    font-size: 20px;
+  }
+
+  .address {
+    color: $mediumGrey;
+    font-weight: 200;
+  }
+
+  .length {
+    color: $mediumGrey;
+    font-weight: 200;
+    font-size: 13px;
+  }
+
+  .icon-container {
+    align-self: center;
+  }
+
+  span {
+    display: block;
+  }
+
+}
