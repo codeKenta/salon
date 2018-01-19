@@ -12,8 +12,10 @@ export class SalonsListComponent implements OnInit {
   selectedPriceRange: any = {};
 
   constructor(
-    private dataService: DataService,
-  ) {
+    private dataService: DataService
+  ) {}
+
+  ngOnInit() {
     // Saves a default optionNumber in sessionStorage
     // if it not already have been set.
     // The option is then used for setting the price range
@@ -21,12 +23,8 @@ export class SalonsListComponent implements OnInit {
     if(!sessionStorage.optionNumber) {
       sessionStorage.optionNumber = 2;
     }
-    this.setPriceRange(sessionStorage.optionNumber)
+    this.setPriceRange(sessionStorage.optionNumber);
     this.getSalonsByPriceRange();
-  }
-
-  ngOnInit() {
-
   }
 
 // Gets all the salons which within the price range.
@@ -64,10 +62,12 @@ export class SalonsListComponent implements OnInit {
   // so the lates selected option remains under the session.
   setPriceRange(optionNumber){
     sessionStorage.optionNumber = optionNumber;
-    switch(optionNumber) {
+    let parsedOptNum = parseInt(optionNumber)
+
+    switch(parsedOptNum) {
       case 1:
         this.selectedPriceRange = {
-          option: optionNumber,
+          option: parsedOptNum,
           min: 0,
           max: 250,
           text: 'under 250'
@@ -76,7 +76,7 @@ export class SalonsListComponent implements OnInit {
 
       case 2:
           this.selectedPriceRange = {
-            option: optionNumber,
+            option: parsedOptNum,
             min: 320,
             max: 500,
             text: '250-500'
@@ -85,7 +85,7 @@ export class SalonsListComponent implements OnInit {
 
       case 3:
           this.selectedPriceRange = {
-            option: optionNumber,
+            option: parsedOptNum,
             min: 500,
             max: 750,
             text: '500-750'
@@ -94,7 +94,7 @@ export class SalonsListComponent implements OnInit {
 
       case 4:
           this.selectedPriceRange = {
-            option: optionNumber,
+            option: parsedOptNum,
             min: 750,
             max: 900,
             text: '750-900'
@@ -103,7 +103,7 @@ export class SalonsListComponent implements OnInit {
 
       case 5:
           this.selectedPriceRange = {
-            option: optionNumber,
+            option: parsedOptNum,
             min: 900,
             max: 10000,
             text: 'över 900'

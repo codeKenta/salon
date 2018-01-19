@@ -21,8 +21,12 @@ router.get('/', (req, res, next) => {
 // Route for getting one salon by the identityname
 router.get('/:identityname', (req, res, next) => {
   Salon.findOne({identityname: req.params.identityname}, (err, salon) => {
-    if (err) throw err;
-    res.json(salons);
+    if (err) {
+      res.json({success: false, msg: 'No salon found'});
+    } else {
+      res.json(salon);
+    }
+
   });
 });
 

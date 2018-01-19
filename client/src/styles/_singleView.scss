@@ -1,0 +1,77 @@
+.header {
+  width: 100%;
+  height: 250px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.0) 28%, rgba(0,0,0,1) 100%), url("../assets/images/salon.jpg") center center no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  padding: 15px;
+  box-sizing: border-box;
+
+  .group.info {
+    .salon-name {
+      font-family: $serif1;
+      font-size: 22px;
+      color: white;
+    }
+    .rates {
+      margin-top: 10px;
+      margin-bottom: 5px;
+      svg {
+        width: 12px;
+      }
+    }
+    .raters {
+      position: relative;
+      margin-left: 10px;
+      bottom: 2px;
+      color: white;
+      font-weight: 200;
+
+    }
+
+  }
+}
+
+.section-links {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  .link {
+    background: white;
+    width: 50%;
+    &.active {
+        border-bottom: 2px solid $gold;
+      }
+    p {
+      text-align: center;
+      font-size: 15px;
+    }
+  }
+}
+
+.section-content.info {
+  padding: 15px;
+  font-weight: 200;
+  line-height: 1.4;
+  .row {
+    .icon-container {
+      margin-right: 10px;
+      &.angle {
+        margin-left: 15px;
+        position: relative;
+        bottom: 2px;
+      }
+      &.globe {
+        position: relative;
+        top: 2px;
+      }
+    }
+    padding: 15px 0;
+    border-bottom: 1px solid $lightGrey;
+    &.description {
+      border-bottom: none;
+    }
+  }
+}

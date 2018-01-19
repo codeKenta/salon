@@ -6,11 +6,10 @@ import { SalonsListComponent } from '../components/salons-list/salons-list.compo
 import { SalonSingleComponent } from '../components/salon-single/salon-single.component';
 
 const appRoutes: Routes = [
-  { path: '', component: AppComponent, children: [
-    { path: 'salons', component: SalonsListComponent },
-    { path: 'salons/:identityname', component: SalonSingleComponent }
-  ]},
-  { path: '**', redirectTo: '' }
+  { path: '', redirectTo: 'salons', pathMatch: 'full' },
+  { path: 'salons', component: SalonsListComponent },
+  { path: 'salons/:identityname', component: SalonSingleComponent },
+  { path: '**', redirectTo: 'salons' }
 ];
 
 @NgModule({

@@ -16,5 +16,10 @@ export class DataService {
       .map(res => res.json());
   }
 
+  getSalonByIdentityName(identityName) {
+    return this.http.get('api/salons/' + identityName)
+      .map(res => res.json());
+  }
+
 
 }

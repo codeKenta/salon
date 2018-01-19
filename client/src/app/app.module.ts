@@ -12,6 +12,11 @@ import { FilterComponent } from './components/icons/filter/filter.component';
 import { AngleLeftComponent } from './components/icons/angle-left/angle-left.component';
 import { AngleDownSmComponent } from './components/icons/angle-down-sm/angle-down-sm.component';
 import { StarComponent } from './components/icons/star/star.component';
+import { HeartComponent } from './components/icons/heart/heart.component';
+import { LocationComponent } from './components/icons/location/location.component';
+import { ClockComponent } from './components/icons/clock/clock.component';
+import { PhoneComponent } from './components/icons/phone/phone.component';
+import { GlobeComponent } from './components/icons/globe/globe.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +26,12 @@ import { StarComponent } from './components/icons/star/star.component';
     FilterComponent,
     AngleLeftComponent,
     AngleDownSmComponent,
-    StarComponent
+    StarComponent,
+    HeartComponent,
+    LocationComponent,
+    ClockComponent,
+    PhoneComponent,
+    GlobeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,148 @@
+/*
+==============================
+Styles specific for list view
+==============================
+*/
+
+.top-nav.list-view {
+  // row for the top items of the nav-element
+  .row.navigate {
+    .brand {
+      font-family: $serif1;
+      font-size: 22px;
+    }
+  }
+
+  // Row for selecting price range in the list view
+  .price-range {
+    padding: 0 15px;
+    border-top: 1px solid $gold;
+    border-bottom: 1px solid $gold;
+    font-weight: 200;
+    background: white;
+    .selected {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      .icon-container.angle {
+        transition: transform 0.7s cubic-bezier(.12,.82,.72,1);
+      }
+    }
+    // Border for seperating the selected range from the options
+    .border {
+      width: 0;
+      transition: width 0.7s cubic-bezier(.12,.82,.72,1);
+      border-bottom: 1px solid $gold;
+    }
+    .expandable-options {
+      transition: height 0.7s cubic-bezier(.12,.82,.72,1);
+      height: 0;
+      overflow: hidden;
+      .active {
+        font-weight: bold;
+      }
+    }
+
+    // The expandable state
+    &.expand {
+      .selected {
+        .icon-container.angle {
+          transform: rotate(-180deg);
+        }
+      }
+
+      .border {
+        width: 130px;
+      }
+
+      .expandable-options {
+        height: 170px;
+        padding-bottom: 10px;
+      }
+    }
+  }
+}
+
+/* Style for the list */
+.list-container {
+  padding: 15px;
+  padding-top: 120px;
+  background: white;
+}
+
+.list-item {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid $lightGrey;
+
+  // Setting all spans to block so they are displayed on new lines
+  span {
+    display: block;
+  }
+
+  .salon-name, .price {
+    margin-bottom: 15px;
+  }
+
+  .time, .price {
+    font-weight: normal;
+  }
+  .time {
+    margin-right: 15px;
+  }
+  .salon-name {
+    font-family: $serif1;
+    font-size: 20px;
+  }
+
+  // Justifies the second group which contains
+  // Name, ratings and address
+  .group.second {
+    position: relative;
+    bottom: 4px;
+  }
+
+  .group.rates {
+    font-size: 10px;
+    margin-bottom: 15px;
+    svg {
+      width: 9px;
+    }
+    span {
+      display: inline-block;
+    }
+    .raters {
+      position: relative;
+      bottom: 1px;
+      margin-left: 5px;
+      font-size: 10px;
+      color: $mediumGrey;
+      font-weight: 200;
+    }
+  }
+
+  .address {
+    color: $mediumGrey;
+    font-weight: 200;
+  }
+
+  .length {
+    color: $mediumGrey;
+    font-weight: 200;
+    font-size: 13px;
+  }
+
+  .icon-container.angle {
+    align-self: center;
+    margin-left: 30px;
+    @include mediaMaxWidth(322px){
+      margin-left: 17px;
+    }
+    // Reusing the angle-down-icon and rotating it to right
+    svg {
+      transform: rotate(-90deg);
+    }
+  }
+
+}

@@ -1,3 +1,77 @@
-<p>
-  salon-single works!
-</p>
+<nav class="top-nav">
+
+  <!-- Navigate and settings -->
+  <div class="row navigate flex just-space-between">
+    <div class="icon-container white" routerLink="/salons">
+      <angle-left-icon></angle-left-icon>
+    </div>
+
+    <div class="icon-container white">
+      <heart-icon></heart-icon>
+    </div>
+  </div>
+</nav>
+<div class="header">
+
+  <div class="group info">
+    <span class="salon-name">{{salon.name}}</span>
+
+    <div class="group rates">
+      <span class="icon-container gold" [ngClass]="{'fill': salon.avarage >= 1}"><star-icon></star-icon></span>
+      <span class="icon-container gold" [ngClass]="{'fill': salon.avarage >= 2}"><star-icon></star-icon></span>
+      <span class="icon-container gold" [ngClass]="{'fill': salon.avarage >= 3}"><star-icon></star-icon></span>
+      <span class="icon-container gold" [ngClass]="{'fill': salon.avarage >= 4}"><star-icon></star-icon></span>
+      <span class="icon-container gold" [ngClass]="{'fill': salon.avarage >= 5}"><star-icon></star-icon></span>
+      <span class="raters">({{salon.rates.length}})</span>
+    </div>
+
+  </div>
+</div>
+
+<nav class="section-links">
+  <div class="info link active">
+    <p>Info</p>
+  </div>
+  <div class="schema link">
+    <p>Schema</p>
+  </div>
+</nav>
+
+<div class="section-content info">
+  <div class="row flex">
+    <div class="icon-container black">
+      <location-icon></location-icon>
+    </div>
+    <span>{{salon.address}}</span>
+  </div>
+
+  <div class="row flex">
+    <div class="icon-container black">
+      <clock-icon></clock-icon>
+    </div>
+
+    <span>Öppet till {{ closeHour / 60 }}:00 idag</span>
+
+    <div class="icon-container angle gold">
+      <angle-down-sm-icon></angle-down-sm-icon>
+    </div>
+  </div>
+
+  <div class="row flex">
+    <div class="icon-container black">
+      <phone-icon></phone-icon>
+    </div>
+    <span>{{salon.phone}}</span>
+  </div>
+
+  <div class="row flex">
+    <div class="icon-container black globe">
+      <globe-icon></globe-icon>
+    </div>
+    <span>{{salon.web}}</span>
+  </div>
+
+  <div class="row description flex">
+    <span>{{salon.description}}</span>
+  </div>
+</div>

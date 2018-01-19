@@ -8,6 +8,8 @@ var SalonSchema = new mongoose.Schema({
   rates: { type: [Number], min: 0, max: 5 },
   avarage: Number,
   address: String,
+  postnumber: String,
+  city: String,
   web: String,
   phone: String,
   description: String,
