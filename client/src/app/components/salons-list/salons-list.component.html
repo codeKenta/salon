@@ -38,7 +38,7 @@
 <div class="list-container">
 
   <!-- Item  -->
-  <div class="list-item" *ngFor="let salon of salons">
+  <div class="list-item" *ngFor="let salon of salons" routerLink="/salons/{{salon.identityname}}">
     <div class="flex just-space-between">
       <span class="time">12.00</span>
 
@@ -65,7 +65,7 @@
         <span class="length">30 min</span>
       </div>
 
-      <div class="icon-container angle gold" routerLink="/salons/{{salon.identityname}}">
+      <div class="icon-container angle gold">
         <angle-down-sm-icon></angle-down-sm-icon>
       </div>
     </div>
