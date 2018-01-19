@@ -10,14 +10,28 @@
       <filter-icon></filter-icon>
     </div>
   </div>
-<!-- [ngClass]="{'me-msg': message.sender == currentUser.id, 'friendmsg': message.sender == friend._id}" -->
+
   <!-- Select price interval -->
-  <div class="row price-interval flex just-space-between">
-    <span class="selected-interval">Pris: 250-500 kr</span>
-    <div class="icon-container gold">
-      <angle-down-sm-icon></angle-down-sm-icon>
+  <div class="price-range" [ngClass]="{'expand': expandPriceRange}">
+
+    <div class="row selected flex just-space-between" (click)="toggleShowPriceRange()">
+      <span class="selected-interval">Pris: {{selectedPriceRange.text}} kr</span>
+      <div class="icon-container angle gold">
+        <angle-down-sm-icon></angle-down-sm-icon>
+      </div>
     </div>
+    <div class="border"></div>
+
+    <div class="expandable-options">
+      <p [ngClass]="{'active': selectedPriceRange.option == 1}" (click)="selectPriceRange(1)">under 250 kr</p>
+      <p [ngClass]="{'active': selectedPriceRange.option == 2}" (click)="selectPriceRange(2)">250-500 kr</p>
+      <p [ngClass]="{'active': selectedPriceRange.option == 3}" (click)="selectPriceRange(3)">500-750 kr</p>
+      <p [ngClass]="{'active': selectedPriceRange.option == 4}" (click)="selectPriceRange(4)">750-950 kr</p>
+      <p [ngClass]="{'active': selectedPriceRange.option == 5}" (click)="selectPriceRange(5)">över 950 kr</p>
+    </div>
+
   </div>
+
 </nav>
 
 <!-- The list -->

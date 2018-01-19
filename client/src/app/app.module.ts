@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { DataService } from './services/data.service';
 import { AppRoutingModule } from './routes/app-routing.module';
 import { HttpModule } from '@angular/http';
+
+import { DataService } from './services/data.service';
 
 import { AppComponent } from './components/app/app.component';
 import { SalonsListComponent } from './components/salons-list/salons-list.component';

@@ -29,7 +29,7 @@ body {
 
 /*
 Top-navigation for navigating in app
-and selecting price interval in the list-view
+and selecting price range in the list-view
 */
 .top-nav {
   position: fixed;
@@ -53,12 +53,52 @@ and selecting price interval in the list-view
     }
   }
 
-  // Row for selecting price interval in the list view
-  .row.price-interval {
+  // Row for selecting price range in the list view
+  .price-range {
+    padding: 0 15px;
     border-top: 1px solid $gold;
     border-bottom: 1px solid $gold;
     font-weight: 200;
-    padding: 15px;
+    background: white;
+    .selected {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      .icon-container.angle {
+        transition: transform 0.7s cubic-bezier(.12,.82,.72,1);
+      }
+    }
+    // Border for seperating the selected range from the options
+    .border {
+      width: 0;
+      transition: width 0.7s cubic-bezier(.12,.82,.72,1);
+      border-bottom: 1px solid $gold;
+    }
+    .expandable-options {
+      transition: height 0.7s cubic-bezier(.12,.82,.72,1);
+      height: 0;
+      overflow: hidden;
+      .active {
+        font-weight: bold;
+      }
+    }
+
+    // The expandable state
+    &.expand {
+      .selected {
+        .icon-container.angle {
+          transform: rotate(-180deg);
+        }
+      }
+
+      .border {
+        width: 130px;
+      }
+
+      .expandable-options {
+        height: 170px;
+        padding-bottom: 10px;
+      }
+    }
   }
 }
 
