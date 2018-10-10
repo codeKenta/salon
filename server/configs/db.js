@@ -1,4 +1,4 @@
-uri = process.env.MONGODB_URI || "mongodb://c9:cloudnine@ds159707.mlab.com:59707/cloudnine";
+uri = process.env.MONGODB_URI || "mongodb://";
 module.exports = {
   uri: uri
 };
